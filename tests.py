@@ -45,23 +45,23 @@ aumenta_idade(dictionary)
 
 def copia(elem):
     if type(elem) == dict:
-        return {key: copia(elem[key]) for key in elem}
+        return {copia(key): copia(elem[key]) for key in elem}
 
     if type(elem) == list:
-        return [copia(e) for e in elem]
+        return [copia(e) for e in elem][::]
 
     if type(elem) == tuple:
-        return tuple(copia(e) for e in elem)
+        return tuple(copia(e) for e in elem)[::]
 
     return elem
 
 dim = cria_posicao(11, 4)
-obs = (cria_posicao(4,2), cria_posicao(5,2))
+obs = ()#(cria_posicao(4,2), cria_posicao(5,2))
 an1 = tuple(cria_animal("rabbit", 5, 0) for i in range(3))
 an2 = (cria_animal("lynx", 20, 15),)
 pos = tuple(cria_posicao(p[0],p[1]) for p in ((5,1),(7,2),(10,1),(6,1)))
 prado = cria_prado(dim, obs, an1+an2, pos)
-print(prado)
+#print(prado)
 
 print(prado)
 print(id(prado))
@@ -75,9 +75,3 @@ print(id(x))
 for i in x:
     print(id(i))
 
-'''x = copia(prado)
-print(prado["tamanho"])
-print(x["tamanho"])
-x["animais"][0]["especie"] = "batata"
-print(prado)
-print(x)'''
