@@ -521,7 +521,8 @@ def cria_prado(posicao_infd:tuple, posicoes_rochedos:tuple, animais:tuple, posic
     for posicao_rochedo in posicoes_rochedos:
         if not eh_posicao(posicao_rochedo) or \
             not(obter_pos_x(posicao_infd) > obter_pos_x(posicao_rochedo) > 0) or\
-            not(obter_pos_y(posicao_infd) > obter_pos_y(posicao_rochedo) > 0):
+            not(obter_pos_y(posicao_infd) > obter_pos_y(posicao_rochedo) > 0) or\
+            posicao_rochedo.count(posicao_rochedo) > 1:
 
             raise ValueError("cria_prado: argumentos invalidos")
 
@@ -529,7 +530,8 @@ def cria_prado(posicao_infd:tuple, posicoes_rochedos:tuple, animais:tuple, posic
         if not eh_posicao(posicao_animal) or\
             not(obter_pos_x(posicao_infd) > obter_pos_x(posicao_animal) > 0) or\
             not(obter_pos_y(posicao_infd) > obter_pos_y(posicao_animal) > 0) or\
-            posicao_animal in posicoes_rochedos:
+            posicao_animal in posicoes_rochedos or \
+            posicoes_animais.count(posicao_animal) > 1:
 
             raise ValueError("cria_prado: argumentos invalidos")
 
