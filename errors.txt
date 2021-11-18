@@ -1,2 +1,0 @@
-A ler ficheiro prj.py
-Desejas correr os testes de verificação de abstração? [y/N]
